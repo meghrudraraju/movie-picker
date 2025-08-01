@@ -9,15 +9,15 @@ app = FastAPI()
 # ✅ CORS settings (adjust as needed for frontend port or deploy URL)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # if using Vite, else 8080 for Vue
+    allow_origins=["http://localhost:5173","http://localhost:5174"],  # if using Vite, else 8080 for Vue
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-#also adding 5173 port
+#also adding 5174 port
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5174"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
