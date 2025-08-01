@@ -119,3 +119,9 @@ def update_profile(
         }
     }
 
+#----------------------
+# Get Health from Backend
+#------------------------
+@router.get("/health")
+def health_check():
+    return {"status": "ok"}
