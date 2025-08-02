@@ -124,9 +124,6 @@ def update_profile(
 #------------------------
 @router.get("/health")
 def health_check():
-    return {"status": "ok"}
-
-
-@app.get("/")
-def root():
     return {"status": "Backend is Running"}
+
+
