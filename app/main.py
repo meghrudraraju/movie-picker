@@ -9,7 +9,9 @@ app = FastAPI()
 # ✅ CORS settings (adjust as needed for frontend port or deploy URL)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173","http://localhost:5174"],  # if using Vite, else 8080 for Vue
+    allow_origins=["http://localhost:5173",
+		   "http://localhost:5174",
+		   "https://what2watch-me1v.onrender.com"],  # if using Vite, else 8080 for Vue
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
