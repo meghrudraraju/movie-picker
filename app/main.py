@@ -16,15 +16,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-#also adding 5174 port
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5174"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 # ✅ Create all tables
 Base.metadata.create_all(bind=engine)
