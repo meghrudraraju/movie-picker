@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import Base, engine
-from app.models import user  # Import model so SQLAlchemy picks it up
+from app.models import user, genre, movies,movie_features,user_interactions  # 👈 Add this line
 from app.routes import user as user_routes  # Import router
 
 app = FastAPI()

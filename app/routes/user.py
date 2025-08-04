@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List, Optional
 
-from app.schemas.user import UserCreate, LoginRequest
+from app.schemas.user import UserCreate, LoginRequest, MoodUpdate
 from app.utils.auth import verify_password, create_access_token, get_current_user
 from app.models.user import User
 from app.db.database import SessionLocal
@@ -126,4 +126,21 @@ def update_profile(
 def health_check():
     return {"status": "Backend is Running"}
 
+#----------------------
+# Update Mood from Backend
+#------------------------
+@router.post("/user/mood")
+def update_user_preferred_mood(
+    payload: MoodUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)  # ✅ Gets user from token
+):
+    user = db.query(User).filter(User.id == current_user.id).first()
 
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.preferred_mood = payload.preferred_mood
+    db.commit()
+    db.refresh(user)
+    return {"message": "Mood updated successfully"}

@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean
 from sqlalchemy.dialects.postgresql import JSONB
 from app.db.database import Base
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -17,3 +18,6 @@ class User(Base):
     preferred_genres = Column(JSONB, nullable=True)         # comma-separated genre IDs
     preferred_languages = Column(JSONB, nullable=True)      # comma-separated language codes
     preferred_mood = Column(JSONB, nullable=True)
+
+
+    interactions = relationship("UserInteraction", back_populates="user")

@@ -25,6 +25,9 @@ class UserResponse(BaseModel):
     class Config:
         orm_mode = True
 
+class MoodUpdate(BaseModel):
+    preferred_mood: str
+
 class UserUpdateRequest(BaseModel):
     hasCompletedOnboarding: Optional[bool]
     preferredGenres: Optional[List[int]]
