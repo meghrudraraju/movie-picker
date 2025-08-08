@@ -11,8 +11,8 @@ class User(Base):
     last_name = Column(String, nullable=False)
     username = Column(String, unique=True, index=True, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
-    dob = Column(Date, nullable=False)
-    pincode = Column(String, nullable=True)
+    age_group = Column(String, nullable=False)   # e.g., 'young_adult', 'teen', etc.
+    location = Column(String, nullable=False)    # e.g., 'Bangalore'
     hashed_password = Column(String, nullable=False)
     has_completed_onboarding = Column(Boolean, default=False)
     preferred_genres = Column(JSONB, nullable=True)         # comma-separated genre IDs

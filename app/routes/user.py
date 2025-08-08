@@ -74,6 +74,8 @@ def get_profile(current_user: User = Depends(get_current_user)):
         "languages": current_user.preferred_languages,
         "preferred": current_user.preferred_mood
     }
+
+
 # ----------------------------
 # Update Profile (Onboarding, Preferences)
 # ----------------------------

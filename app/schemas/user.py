@@ -7,8 +7,8 @@ class UserCreate(BaseModel):
     last_name: str
     username: str
     email: EmailStr
-    dob: date
-    pincode: str
+    age_group: str   # e.g., "teen", "young_adult", "adult", "senior"
+    location: str    # e.g., "Bangalore", "Delhi"
     password: str
 class LoginRequest(BaseModel):
     email: EmailStr

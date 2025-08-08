@@ -17,9 +17,9 @@ def create_user(db: Session, user: UserCreate):
         first_name=user.first_name,
         last_name=user.last_name,
         username=user.username,
+	age_group=user.age_group,    # NEW
+        location=user.location,   
         email=user.email,
-        dob=user.dob,
-        pincode=user.pincode,
         hashed_password=hashed_pw
     )
     db.add(db_user)
